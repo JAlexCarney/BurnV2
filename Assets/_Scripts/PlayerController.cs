@@ -7,18 +7,18 @@ public class PlayerController : MonoBehaviour
     public Transform cameraHolder;
     private new Transform camera;
     private float size = 10f;
-    private readonly float horizontalAcc = 0.5f;
+    private readonly float horizontalAcc = 1f;
     private readonly float cameraRotationSpeed = 0.05f;
     private readonly float maxSpeed = 2f;
     private Rigidbody rb;
     private bool moving = false;
+    private bool cameraMoving = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         camera = cameraHolder.GetChild(0);
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -28,11 +28,13 @@ public class PlayerController : MonoBehaviour
 
         if (inputVector.magnitude > 0)
         {
-            var adjustedInputVector = GlobalUtil.Rotate(inputVector, - (cameraHolder.eulerAngles.y));
-            rb.AddForce(new Vector3(adjustedInputVector.x, 0f, adjustedInputVector.y) * horizontalAcc);
-            transform.LookAt(new Vector3(transform.position.x + adjustedInputVector.x,
+            if (!cameraMoving) {
+                inputVector = GlobalUtil.Rotate(inputVector, - (cameraHolder.eulerAngles.y));
+            }
+            rb.AddForce(new Vector3(inputVector.x, 0f, inputVector.y) * horizontalAcc);
+            transform.LookAt(new Vector3(transform.position.x + inputVector.x,
                 transform.position.y,
-                transform.position.z + adjustedInputVector.y));
+                transform.position.z + inputVector.y));
             if (rb.velocity.magnitude > maxSpeed) 
             {
                 rb.velocity = rb.velocity.normalized * maxSpeed;
@@ -50,16 +52,17 @@ public class PlayerController : MonoBehaviour
         {
             cameraHolder.eulerAngles = new Vector3(0f, cameraHolder.eulerAngles.y - cameraRotationSpeed, 0f);
             transform.LookAt(new Vector3(camera.position.x, transform.position.y, camera.position.z));
+            cameraMoving = true;
         }
-        else if (Input.GetKey(KeyCode.Q)) 
+        else if (Input.GetKey(KeyCode.Q))
         {
             cameraHolder.eulerAngles = new Vector3(0f, cameraHolder.eulerAngles.y + cameraRotationSpeed, 0f);
             transform.LookAt(new Vector3(camera.position.x, transform.position.y, camera.position.z));
+            cameraMoving = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        else 
         {
-            Cursor.lockState = CursorLockMode.None;
+            cameraMoving = false;
         }
     }
 
