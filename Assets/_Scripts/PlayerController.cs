@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private new Transform camera;
     private float size = 10f;
     private readonly float horizontalAcc = 0.5f;
-    private readonly float yeetForce = 10f;
     private readonly float cameraRotationSpeed = 0.05f;
+    private readonly float maxSpeed = 2f;
     private Rigidbody rb;
     private bool moving = false;
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         camera = cameraHolder.GetChild(0);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -32,6 +33,10 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(new Vector3(transform.position.x + adjustedInputVector.x,
                 transform.position.y,
                 transform.position.z + adjustedInputVector.y));
+            if (rb.velocity.magnitude > maxSpeed) 
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
             moving = true;
         }
         else if (moving == true)
@@ -52,9 +57,9 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(new Vector3(camera.position.x, transform.position.y, camera.position.z));
         }
 
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            rb.AddForce(new Vector3(0f, yeetForce, 0f));
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
