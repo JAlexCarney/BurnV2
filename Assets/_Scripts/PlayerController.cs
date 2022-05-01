@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform cameraHolder;
-    private new Transform camera;
-    private float size = 10f;
-    private readonly float horizontalAcc = 1f;
-    private readonly float cameraRotationSpeed = 0.05f;
-    private readonly float maxSpeed = 2f;
-    private Rigidbody rb;
-    private bool moving = false;
-    private bool cameraMoving = false;
+    public GameObject sootSpritePrefab;
+    public static float size = 10f;
+    private readonly float speed = 5f;
+    private readonly float rotationSpeed = 0.1f;
+    private CharacterController cc;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        camera = cameraHolder.GetChild(0);
+        cc = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -26,43 +21,20 @@ public class PlayerController : MonoBehaviour
     {
         var inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
+        inputVector = GlobalUtil.Rotate(inputVector, -transform.eulerAngles.y);
+
         if (inputVector.magnitude > 0)
         {
-            if (!cameraMoving) {
-                inputVector = GlobalUtil.Rotate(inputVector, - (cameraHolder.eulerAngles.y));
-            }
-            rb.AddForce(new Vector3(inputVector.x, 0f, inputVector.y) * horizontalAcc);
-            transform.LookAt(new Vector3(transform.position.x + inputVector.x,
-                transform.position.y,
-                transform.position.z + inputVector.y));
-            if (rb.velocity.magnitude > maxSpeed) 
-            {
-                rb.velocity = rb.velocity.normalized * maxSpeed;
-            }
-            moving = true;
-        }
-        else if (moving == true)
-        {
-            moving = false;
-            rb.velocity *= 0;
-            transform.LookAt(new Vector3(camera.position.x, transform.position.y, camera.position.z));
+            cc.SimpleMove(new Vector3(inputVector.x, 0f, inputVector.y) * speed);
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            cameraHolder.eulerAngles = new Vector3(0f, cameraHolder.eulerAngles.y - cameraRotationSpeed, 0f);
-            transform.LookAt(new Vector3(camera.position.x, transform.position.y, camera.position.z));
-            cameraMoving = true;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + rotationSpeed, transform.eulerAngles.z);
         }
-        else if (Input.GetKey(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.Q)) 
         {
-            cameraHolder.eulerAngles = new Vector3(0f, cameraHolder.eulerAngles.y + cameraRotationSpeed, 0f);
-            transform.LookAt(new Vector3(camera.position.x, transform.position.y, camera.position.z));
-            cameraMoving = true;
-        }
-        else 
-        {
-            cameraMoving = false;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - rotationSpeed, transform.eulerAngles.z);
         }
     }
 
@@ -71,15 +43,17 @@ public class PlayerController : MonoBehaviour
         if (size > burnable.size) {
             size += burnable.size/10f;
             transform.localScale = Vector3.one * size / 10f;
+            GameObject sootSprite = Instantiate(sootSpritePrefab, burnable.gameObject.transform.position, new Quaternion());
+            sootSprite.GetComponent<SootSprite>().SetFollow(transform);
             Destroy(burnable.gameObject);
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit collider)
     {
-        if (collision.gameObject.CompareTag("Burnable")) 
+        if (collider.gameObject.CompareTag("Burnable")) 
         {
-            Consume(collision.gameObject.GetComponent<BaseBurnable>());
+            Consume(collider.gameObject.GetComponent<BaseBurnable>());
         }
     }
 }
