@@ -15,11 +15,11 @@ D:/BurnV2
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55010
+54790
 Successfully changed project path to: D:/BurnV2
 D:/BurnV2
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 40.12 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 38.65 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.7f1 (dd97f2c94397)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity Editors/2020.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -35,75 +35,58 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity Editors/2020.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity Editors/2020.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity Editors/2020.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56964
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56748
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity Editors/2020.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004885 seconds.
+Registered in 0.004000 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 107.39 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 40.71 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  6.382 seconds
+- Completed reload, in  1.870 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001610 seconds.
+Registered in 0.000858 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.240 seconds
+- Completed reload, in  1.410 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.86 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1158 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 59.7 MB.
-System memory in use after: 59.8 MB.
+System memory in use before: 59.9 MB.
+System memory in use after: 59.9 MB.
 
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1603.
-Total: 2.888700 ms (FindLiveObjects: 0.416400 ms CreateObjectMapping: 0.223800 ms MarkObjects: 2.142500 ms  DeleteObjects: 0.104600 ms)
+Total: 2.570000 ms (FindLiveObjects: 0.303900 ms CreateObjectMapping: 0.069400 ms MarkObjects: 2.100700 ms  DeleteObjects: 0.094700 ms)
 
 ========================================================================
 Received Import Request.
+  path: Assets/Art/Materials/Test/FlameParticle_Mat.mat
+  artifactKey: Guid(c08ed0baf279a9c43bf956ef534b9d36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Test/FlameParticle_Mat.mat using Guid(c08ed0baf279a9c43bf956ef534b9d36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b95bac2eb5fdf60215028596dd803eb5') in 0.175042 seconds
+  Import took 0.178138 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.422060 seconds.
   path: Assets/Art/Shaders/FireBlob_sd.shader
   artifactKey: Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/FireBlob_sd.shader using Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aee3cfffbec023d1d97c230dc49a9df0') in 0.055282 seconds
-  Import took 0.058049 seconds .
+Start importing Assets/Art/Shaders/FireBlob_sd.shader using Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c965e894289b1e4e41e6913932d61b8') in 0.008569 seconds
+  Import took 0.011305 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 164.470331 seconds.
+  Time since last request: 0.482412 seconds.
   path: Assets/Art/Shaders/FireBlob_sd.shader
   artifactKey: Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/FireBlob_sd.shader using Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48b814564b4693dd3951d34eee9db855') in 0.005924 seconds
-  Import took 0.009117 seconds .
+Start importing Assets/Art/Shaders/FireBlob_sd.shader using Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c965e894289b1e4e41e6913932d61b8') in 0.004219 seconds
+  Import took 0.007019 seconds .
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.035390 seconds.
-  path: Assets/Art/Shaders/FireBlob_sd.shader
-  artifactKey: Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/FireBlob_sd.shader using Guid(84e53b0bd8fe85b479d19dc9943948f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48b814564b4693dd3951d34eee9db855') in 0.006847 seconds
-  Import took 0.011114 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.674253 seconds.
-  path: Assets/Art/Shaders/Test.shader
-  artifactKey: Guid(d196d7f47d787d847ad4e50172d17f10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/Test.shader using Guid(d196d7f47d787d847ad4e50172d17f10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dea6ed3e869beffa52bd9de7bf5393bb') in 0.005206 seconds
-  Import took 0.008186 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.533475 seconds.
-  path: Assets/Art/Shaders/Test.shader
-  artifactKey: Guid(d196d7f47d787d847ad4e50172d17f10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/Test.shader using Guid(d196d7f47d787d847ad4e50172d17f10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01d6fc06c0be0e311525912fe2319950') in 0.005180 seconds
-  Import took 0.008407 seconds .
-
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
