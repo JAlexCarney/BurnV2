@@ -5,4 +5,5 @@ using UnityEngine;
 public class BaseBurnable : MonoBehaviour
 {
     public float size = 1;
+
 }

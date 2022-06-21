@@ -7,22 +7,33 @@ Shader "Unlit/FlameParticle"
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" "Queue" = "Transparent"}
+        Tags { "RenderType"="Transparent" "Queue" = "Transparent+1"}
         LOD 100
 
+        // Pass {
+        //     ZWrite On
+        //     ColorMask 0
+        // }
 
+        ZWrite On
         Pass
-        {
+        {   
+            //  Stencil {
+            //       Ref 10
+            //       ReadMask 10
+            //       Comp NotEqual
+            //       Pass Replace
+            //   }
 
             Stencil
             {
-                Ref 1  // set value of 1...
+                Ref 10  // set value of 1...
                 Comp notequal // and if stencil value is =/= to what is already in stencil buffer...
-                Pass keep // then keep the pixel that belongs to the wall!
+                Pass Replace // then keep the pixel that belongs to the wall!
             }
 
+        
             Blend SrcAlpha OneMinusSrcAlpha
-            ZWrite Off
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -33,23 +44,25 @@ Shader "Unlit/FlameParticle"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+                fixed4 color : COLOR;
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                fixed4 color : COLOR;
             };
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _Color;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.color = v.color;
                 return o;
             }
 
@@ -57,23 +70,12 @@ Shader "Unlit/FlameParticle"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return col * _Color;
+                clip(col-.95);
+
+                return col * i.color;
             }
             ENDCG
         }
-
-        Pass 
-        {
-            Stencil
-            {
-                Ref 1 
-                Comp always // comparison - ALWAYS write 1 into stencil buffer 
-                Pass replace // replace anything in frame buffer w this pixel pass
-            }
-            ColorMask 0 
-            ZWrite Off
-        }
-
 
     }
 }

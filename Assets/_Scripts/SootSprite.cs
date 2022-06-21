@@ -7,8 +7,8 @@ public class SootSprite : MonoBehaviour
     private Transform follow;
     private Rigidbody rb;
     private GameObject visual;
-    private float speed = 0.25f;
-    private float minDistance = 1.5f;
+    private float speed = 1.5f; // Speed used to be .25 - for some reason this was not enough in the build
+    private float minDistance = 1.5f; // TODO: Put this in player visual 
     private float maxDistance = 3f;
 
     private void Start()

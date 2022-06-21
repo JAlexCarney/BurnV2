@@ -2,32 +2,37 @@ Shader "Unlit/FireBlob_sd"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
-        _StepWidth ("Step Width", Range(0.05, 1)) = 0.33
-        [IntRange]_NumSteps ("Number of Steps", Range(1, 16)) = 2
-
-        [Header(Colors)]
+        [Header(Colors)] 
         _Color_Inner ("Inner Color", Color) = (1,1,1,1)
-        _Color_Middle ("Middle Color", Color) = (.5,.5,.5,.5)
-        _Color_Outer ("Outer Color", Color) = (0,0,0,0)
+        _Color_Outer ("Middle Color", Color) = (.5,.5,.5,.5)
+
+        [Header(Color Properties)] 
+        _ColorWidth ("Inner Color Width", Range(0, 16)) = 4
+
+        [MaterialToggle] 
+        _CellShading ("Cell shading", Float) = 0
+        [ShowAsVector2]
+        _ColorTransition("Color Transition", Vector) = (.9, 1, 0, 0)
 
         [Header(Blorbness)]
         _Bottom ("Bottom clamp", Range(0, 1)) = 0.1
         _Top ("Top clamp", Range (0,1)) = 0.5
+        _HorizontalWiggle ("Horizontal wiggle amount", Range(0,30)) = 0.1
 
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" "Queue" = "Transparent-1"}
+        Tags { "RenderType"="Transparent" "Queue" = "Transparent"}
         LOD 100
 
         Stencil
         {
-            Ref 1 
+            Ref 10 
             Comp always // comparison - ALWAYS write 1 into stencil buffer 
             Pass replace // replace anything in frame buffer w this pixel pass
         }
 
+        ZWrite On
 
         // Pass {
         //     ZWrite On
@@ -121,18 +126,18 @@ Shader "Unlit/FireBlob_sd"
                 float3 color : TEXCOORD5;
             };
 
-            sampler2D _MainTex;
             float4 _MainTex_ST;
 
-            float _StepWidth;
-            int _NumSteps;
-
+            float _ColorWidth;
             fixed4 _Color_Inner;
-            fixed4 _Color_Middle;
             fixed4 _Color_Outer;
 
             float _Bottom;
             float _Top;
+            float _HorizontalWiggle; 
+
+            float _CellShading;
+            float4 _ColorTransition;
 
             float iLerp( float a, float b, float v ) {
                 return (v - a) / (b - a);
@@ -146,7 +151,7 @@ Shader "Unlit/FireBlob_sd"
                 o.uv = v.uv1;
 
                 // calculate wigglies 
-                float wiggleX = sin((o.uv.y -_Time.y * .2f)  * 10) * .0005;
+                float wiggleX = sin((o.uv.y -_Time.y * .2f)  * _HorizontalWiggle) * .0005;
                 float clamped = saturate(iLerp(_Bottom, _Top, o.uv.y)); 
                 v.vertex.x = v.vertex.x + (wiggleX * clamped);
 
@@ -167,20 +172,20 @@ Shader "Unlit/FireBlob_sd"
                 float3 L = _WorldSpaceLightPos0.xyz; // actually a direction (first pass)
                 float3 V = normalize(_WorldSpaceCameraPos - i.wPos); 
 
-                float alpha = 1; 
+                float alpha = _Color_Outer.w; 
                 // inverse
                 half dp = dot(V, N);
                 
-                alpha = saturate((dp * 2)-.8);
+                // alpha = saturate((dp * 2)-.8);
 
-                dp = saturate((1 - dp) * 4);
-                float4 color = dp * _Color_Middle;
+                dp = saturate((1 - dp) * _ColorWidth);    
+                dp = smoothstep(.9, 1, dp) * _CellShading + (1-_CellShading) * smoothstep(_ColorTransition.x, _ColorTransition.y, dp);
+                float4 color = dp * _Color_Outer;
 
                 dp = 1 - dp;
                 color = color + (dp * _Color_Inner);
 
-
-                return color;
+                return float4(color.rgb, alpha);
                 // sample the texture
                 return float4(color.rgb, alpha);
             }
