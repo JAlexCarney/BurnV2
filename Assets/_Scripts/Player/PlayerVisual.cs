@@ -20,6 +20,7 @@ public class PlayerVisual : MonoBehaviour
     private int shPropPos = Shader.PropertyToID("_LightPos"); // this is a shader property - store it in a var just to speed things up a lil
     private Material fireLightSharedMat;
 
+
     void OnEnable()
     {
         PlayerController.ConsumedBurnable += Consume;
@@ -28,7 +29,11 @@ public class PlayerVisual : MonoBehaviour
     }
 
     public void Move(Vector3 pos) { // making this a static bc i dont feel like having MORE references :) idk if i should change this lmao 
+        Debug.Log(mesh.GetComponent<Renderer>().bounds.size.y);
+
         fireLightSharedMat.SetVector(shPropPos, pos); 
+        topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerHeight", mesh.GetComponent<Renderer>().bounds.size.y);
+        topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerBase", this.transform.position.y);
     }
 
     IEnumerator Squish(Vector3 direction)

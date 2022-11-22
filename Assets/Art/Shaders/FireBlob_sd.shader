@@ -5,9 +5,11 @@ Shader "Unlit/FireBlob_sd"
         [Header(Colors)] 
         _Color_Inner ("Inner Color", Color) = (1,1,1,1)
         _Color_Outer ("Middle Color", Color) = (.5,.5,.5,.5)
+        _Color_Gradient ("Gradient Color", Color) = (1,1,1,1)
 
         [Header(Color Properties)] 
         _ColorWidth ("Inner Color Width", Range(0, 16)) = 4
+        _GradientHeight("Gradient Height", Range(0,10)) = 1
 
         [MaterialToggle] 
         _CellShading ("Cell shading", Float) = 0
@@ -129,8 +131,10 @@ Shader "Unlit/FireBlob_sd"
             float4 _MainTex_ST;
 
             float _ColorWidth;
+            float _GradientHeight;
             fixed4 _Color_Inner;
             fixed4 _Color_Outer;
+            fixed4 _Color_Gradient;
 
             float _Bottom;
             float _Top;
@@ -176,17 +180,22 @@ Shader "Unlit/FireBlob_sd"
                 // inverse
                 half dp = dot(V, N);
                 
-                // alpha = saturate((dp * 2)-.8);
 
+                // i have NO fuckin idea why i inverse this lmao
                 dp = saturate((1 - dp) * _ColorWidth);    
                 dp = smoothstep(.9, 1, dp) * _CellShading + (1-_CellShading) * smoothstep(_ColorTransition.x, _ColorTransition.y, dp);
                 float4 color = dp * _Color_Outer;
 
+                // i have NO fucking idea why i flip this lmao 
                 dp = 1 - dp;
                 color = color + (dp * _Color_Inner);
 
-                return float4(color.rgb, alpha);
-                // sample the texture
+                // add gradient color at the bottom
+                float gradientMask = saturate(i.uv.y * _GradientHeight); 
+                color = color * gradientMask + _Color_Gradient * (1-gradientMask);
+
+                return color;
+
                 return float4(color.rgb, alpha);
             }
             ENDCG
