@@ -40,8 +40,9 @@ public class PlayerController : MonoBehaviour
 
         if (inputVector.magnitude > 0)
         {
-            Vector3 direction = new Vector3(inputVector.x, 0f, inputVector.y).normalized;
+            // Vector3 direction = new Vector3(inputVector.y, 0f, -inputVector.x).normalized; //input adjusted based on camera pos and global vectors 
 
+            Vector3 direction = new Vector3(inputVector.y, 0f, -inputVector.x).normalized;
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); 
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            cc.SimpleMove(moveDir.normalized * speed);
+            cc.SimpleMove(moveDir * speed);
         }
 
         // if (Input.GetKey(KeyCode.E))
