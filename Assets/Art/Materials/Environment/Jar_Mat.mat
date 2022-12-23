@@ -24,13 +24,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Emission: 5
+    - _Emission: 2.7
     - _FresnelSize: 0.464
     - _Gloss: 0.313
     - _InnerFresnelSize: 0.827
     m_Colors:
-    - _Albedo: {r: 0.13333327, g: 0.4823529, b: 0.5372549, a: 0.3764706}
-    - _FresnelColor: {r: 0.20714669, g: 0.25161675, b: 0.46226418, a: 1}
-    - _GlossColor: {r: 0.4313725, g: 0.62352943, b: 0.67058825, a: 0.5294118}
-    - _InnerFresnelColor: {r: 0.16470584, g: 1, b: 0.9254902, a: 0.22745098}
+    - _Albedo: {r: 0.46638134, g: 0.36779103, b: 0.8207547, a: 0.6313726}
+    - _FresnelColor: {r: 0, g: 1, b: 0.8857477, a: 1}
+    - _GlossColor: {r: 0.9811321, g: 0.8531964, b: 0.29156283, a: 0.8156863}
+    - _InnerFresnelColor: {r: 0.11774653, g: 0.8550745, b: 0.9245283, a: 0.22745098}
   m_BuildTextureStacks: []

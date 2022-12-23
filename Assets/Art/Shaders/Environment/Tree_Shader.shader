@@ -2,7 +2,8 @@
 {
     Properties
     {
-        _Gradient ("Color", 2D) = "white" {}
+        _StartColor ("Gradient start", Color) = (1,1,1,1)
+        _EndColor ("Gradient end", Color) = (0,0,0,0)
         _StartHeight ("Lowest height", float) = 5
         _EndHeight ("Tallest height", float) = 20 
     }
@@ -44,7 +45,8 @@
                 SHADOW_COORDS(4) // calculate coords for shadows on objects
             };
 
-            sampler2D _Gradient; 
+            float4 _StartColor; 
+            float4 _EndColor; 
             float _StartHeight; 
             float _EndHeight; 
             
@@ -61,7 +63,7 @@
                 o.pos = UnityObjectToClipPos(v.vertex);
                 float originHeight = mul(unity_ObjectToWorld, float4(0,0,0,1)).y; 
                 float val = ilerp(_StartHeight, _EndHeight, originHeight);
-                o.col = tex2Dlod(_Gradient, float4(val,0,0,0)); // use tex2Dlod in a vert shader
+                o.col = lerp(_StartColor, _EndColor, val); // use tex2Dlod in a vert shader
 
                 o.normal = UnityObjectToWorldNormal( v.normal ); 
                 o.wPos = mul(unity_ObjectToWorld, v.vertex);
