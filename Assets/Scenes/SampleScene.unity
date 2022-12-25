@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.7286834, g: 0.54509807, b: 0.7529412, a: 1}
+  m_AmbientSkyColor: {r: 0.48754007, g: 0.248309, b: 0.5660378, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.76
   m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.3446066, g: 0.6037736, b: 0.49737874, a: 1}
+  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 1065b432639a84123a07ea43fe5ba4c9, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.568
+  m_ReflectionIntensity: 0.43
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1237004045}
-  m_IndirectSpecularColor: {r: 0.004425827, g: 0.035388537, b: 0.111190304, a: 0.568}
+  m_IndirectSpecularColor: {r: 0.003350538, g: 0.026790617, b: 0.08417576, a: 0.43}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1296,8 +1296,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.99215686, g: 0.74603564, b: 0.46274507, a: 1}
-  m_Intensity: 2.03
+  m_Color: {r: 1, g: 0.4467237, b: 0.3726415, a: 1}
+  m_Intensity: 1.61
   m_Range: 8.4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2069,7 +2069,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: da33d846e335cd944bde9e9715f329a4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 49c10f0f54588a240a51d4d11dd1a824, type: 2}
+      objectReference: {fileID: 2100000, guid: 6ea670d79d0d94a40834616a6e1b64be, type: 2}
     - target: {fileID: -7511558181221131132, guid: da33d846e335cd944bde9e9715f329a4, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -8218,7 +8218,7 @@ ParticleSystem:
     enabled: 1
     curve:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 1
       scalar: 2.05
       minScalar: 0.12
       maxCurve:
@@ -8289,7 +8289,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -8342,7 +8342,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 1
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -12397,7 +12397,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: da33d846e335cd944bde9e9715f329a4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 49c10f0f54588a240a51d4d11dd1a824, type: 2}
+      objectReference: {fileID: 2100000, guid: 6ea670d79d0d94a40834616a6e1b64be, type: 2}
     - target: {fileID: -7511558181221131132, guid: da33d846e335cd944bde9e9715f329a4, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -18989,7 +18989,7 @@ MonoBehaviour:
   finalBlitToCameraTarget: 0
   antialiasingMode: 2
   temporalAntialiasing:
-    jitterSpread: 0.75
+    jitterSpread: 0.581
     sharpness: 0
     stationaryBlending: 0.95
     motionBlending: 0.85
@@ -24341,8 +24341,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.18039216, g: 0.22352941, b: 0.39607844, a: 1}
-  m_Intensity: 0.89
+  m_Color: {r: 0.7647059, g: 0.7803769, b: 0.98039216, a: 1}
+  m_Intensity: 0.54
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -24384,7 +24384,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0.81
+  m_BounceIntensity: 1.74
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -33920,8 +33920,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49c10f0f54588a240a51d4d11dd1a824, type: 2}
-  - {fileID: 2100000, guid: 3f4b8f688a827ff4e924211cb5298e91, type: 2}
+  - {fileID: 2100000, guid: 4e02a4ca701a34e018c21cf288977b4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34761,19 +34760,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8547485
+      value: 0.7569952
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5190424
+      value: -0.6534205
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -34781,7 +34780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 62.536
+      value: -81.6
       objectReference: {fileID: 0}
     - target: {fileID: 3405592348003078694, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -36561,8 +36560,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49c10f0f54588a240a51d4d11dd1a824, type: 2}
-  - {fileID: 2100000, guid: 3f4b8f688a827ff4e924211cb5298e91, type: 2}
+  - {fileID: 2100000, guid: 4e02a4ca701a34e018c21cf288977b4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

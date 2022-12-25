@@ -29,8 +29,8 @@ Material:
     - _Gloss: 0.313
     - _InnerFresnelSize: 0.827
     m_Colors:
-    - _Albedo: {r: 0.46638134, g: 0.36779103, b: 0.8207547, a: 0.6313726}
+    - _Albedo: {r: 0.36009255, g: 0.63142085, b: 0.6415094, a: 0.6313726}
     - _FresnelColor: {r: 0, g: 1, b: 0.8857477, a: 1}
-    - _GlossColor: {r: 0.9811321, g: 0.8531964, b: 0.29156283, a: 0.8156863}
+    - _GlossColor: {r: 0.4764151, g: 1, b: 0.96615434, a: 0.8156863}
     - _InnerFresnelColor: {r: 0.11774653, g: 0.8550745, b: 0.9245283, a: 0.22745098}
   m_BuildTextureStacks: []
