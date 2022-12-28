@@ -82,7 +82,6 @@ Shader "Unlit/SkyBox"
                 uv = uv * _Texture_ST.xy + _Texture_ST.zw;
 
                 fixed4 tex = tex2D (_Texture, uv);
-                return tex;
                 return col * (1-tex.a) + tex * tex.a;
             }
             ENDCG

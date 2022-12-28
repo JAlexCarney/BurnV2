@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SootSprite : MonoBehaviour
 {
-    private Transform follow;
+    public Transform follow;
     private Rigidbody rb;
     private GameObject visual;
     private float speed = 1.5f; // Speed used to be .25 - for some reason this was not enough in the build
