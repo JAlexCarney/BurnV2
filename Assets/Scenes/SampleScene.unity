@@ -1487,7 +1487,6 @@ GameObject:
   - component: {fileID: 381429379}
   - component: {fileID: 381429382}
   - component: {fileID: 381429381}
-  - component: {fileID: 381429380}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -1504,25 +1503,11 @@ Transform:
   m_GameObject: {fileID: 381429378}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.005, z: 0.992}
-  m_LocalScale: {x: 1.4996961, y: 1.4996961, z: 1.4996961}
+  m_LocalScale: {x: 1.499696, y: 1.4996961, z: 1.499696}
   m_Children: []
   m_Father: {fileID: 1826898888}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!64 &381429380
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381429378}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &381429381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1838,6 +1823,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3405592348003078695, guid: 35ec53f655c50f6479a1883ab37e2b24, type: 3}
   m_PrefabInstance: {fileID: 3405592346562755271}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &427101368
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427101367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a95b9866790eb461690dd85a0bdc5806, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &427101370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1858,7 @@ MonoBehaviour:
   topParticles: {fileID: 561262785}
   sideParticles: {fileID: 776659097}
   sootSpritePrefab: {fileID: 922190614494163163, guid: 5be2cb22916bf144f82aabd34e9bc02f, type: 3}
+  face: {fileID: 381429381}
   fireLight: {fileID: 3858307646720541611}
 --- !u!1 &468756211
 GameObject:

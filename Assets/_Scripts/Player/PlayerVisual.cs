@@ -10,6 +10,8 @@ public class PlayerVisual : MonoBehaviour
     public ParticleSystem topParticles; 
     public ParticleSystem sideParticles; 
     public GameObject sootSpritePrefab;
+    public MeshRenderer face; 
+
     [Tooltip("Literally any object that has the firelight shader lmao")]
     public GameObject fireLight;   
 
@@ -33,6 +35,7 @@ public class PlayerVisual : MonoBehaviour
         fireLightSharedMat.SetVector(shPropPos, pos); 
         topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerHeight", mesh.GetComponent<Renderer>().bounds.size.y);
         topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerBase", this.transform.position.y);
+        this.GetComponent<Animator>().Play("Walking", 0);
     }
 
     IEnumerator Squish(Vector3 direction)
@@ -95,6 +98,11 @@ public class PlayerVisual : MonoBehaviour
             sideEmission.rateOverTime = 28 + PlayerController.size/2f;
         }
         sootSprite.GetComponent<SootSprite>().SetFollow(transform);
+    }
+
+    public void SetExpression(Texture tex)
+    {
+        face.materials[0].SetTexture("_MainTex", tex);
     }
  }
 
