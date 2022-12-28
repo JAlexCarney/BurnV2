@@ -59,10 +59,11 @@ Material:
     - _Bottom: 0.06
     - _BumpScale: 1
     - _CellShading: 0
-    - _ColorWidth: 3.2
+    - _ColorWidth: 2.3
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Emission: 1.82
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

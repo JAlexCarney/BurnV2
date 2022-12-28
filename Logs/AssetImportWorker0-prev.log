@@ -1,0 +1,458 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/paula/Documents/BurnV2
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+58159
+Successfully changed project path to: /Users/paula/Documents/BurnV2
+/Users/paula/Documents/BurnV2
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 33.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.7f1 (dd97f2c94397)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/paula/Documents/BurnV2/Assets
+GfxDevice: creating device client; threaded=0
+2022-12-26 19:47:37.381 Unity[20140:477438] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-12-26 19:47:37.381 Unity[20140:477438] Metal devices available: 1
+2022-12-26 19:47:37.381 Unity[20140:477438] 0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-12-26 19:47:37.381 Unity[20140:477438] Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 655
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56140
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.002683 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 29.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.421 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001600 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.010 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.7f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1449 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.6 MB.
+System memory in use after: 135.7 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1894.
+Total: 2.899417 ms (FindLiveObjects: 0.333625 ms CreateObjectMapping: 0.114364 ms MarkObjects: 2.308227 ms  DeleteObjects: 0.141460 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Art/Materials/New Material.mat
+  artifactKey: Guid(a22b8ebeea4c4494c927b77a26e4b82f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/New Material.mat using Guid(a22b8ebeea4c4494c927b77a26e4b82f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8c57f1a93d6969e477b7c3448568b79') in 0.279609 seconds
+  Import took 0.285101 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 525.352378 seconds.
+  path: Assets/Art/Materials/SkyBox
+  artifactKey: Guid(1f9f561a3a3c6463dbae2b23f74080e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox using Guid(1f9f561a3a3c6463dbae2b23f74080e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4f0e35969e4ca6ea1d0877cadbff77d') in 0.004439 seconds
+  Import took 0.016365 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.548363 seconds.
+  path: Assets/Art/Materials/SkyBox/New Material.mat
+  artifactKey: Guid(a22b8ebeea4c4494c927b77a26e4b82f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/New Material.mat using Guid(a22b8ebeea4c4494c927b77a26e4b82f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0aafd5ce7d6a3a640b8b259426c76e1') in 0.046385 seconds
+  Import took 0.049802 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.684091 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a4d2a21fddb987240d12b91fa73137c') in 0.155804 seconds
+  Import took 0.158602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.069282 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '109d0d1fc54b33263b5277fea9ff67bd') in 0.067211 seconds
+  Import took 0.070612 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 71.326726 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94ccfe813ae9d37cf039ab66c1d5331a') in 0.030525 seconds
+  Import took 0.034475 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.862734 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5827cd7aabc7ac05a47ac6e8a76804b') in 0.031284 seconds
+  Import took 0.034764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.667827 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d7d9a04f6d26f2ea27e7f01f8fd7d5e') in 0.026086 seconds
+  Import took 0.029215 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.989111 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcfcc8ba6e60e2949f3073375a90bfd2') in 0.028619 seconds
+  Import took 0.031943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.213756 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf89675a78a74d6465152c7264ce7512') in 0.028427 seconds
+  Import took 0.032356 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.518167 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3be4ae05f20c082e8dca31e847daebfe') in 0.028846 seconds
+  Import took 0.032874 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.066907 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f44d4b85fd3a34def1a2245616e5eab8') in 0.027800 seconds
+  Import took 0.031301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.989041 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca133062d55d3cc6f653d23014a430e1') in 0.026939 seconds
+  Import took 0.030354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.749821 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87343166dd20a9c34e11150db7926669') in 0.028173 seconds
+  Import took 0.031500 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.955804 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bafba58ddc5dd70ad665c174cb05abb') in 0.025980 seconds
+  Import took 0.029695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.116537 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daab1d012a1175db388567b04b11a7b2') in 0.030522 seconds
+  Import took 0.033464 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.154675 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5b3f3ab5ff24ed8104aacb439ecc547') in 0.025865 seconds
+  Import took 0.028750 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.633863 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e31efb1ab9f43d991dc2ae5ca5d3f3ec') in 0.026020 seconds
+  Import took 0.029434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.852380 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9f818f02bb732117762f0d4962d4fde') in 0.021099 seconds
+  Import took 0.024719 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.395407 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a017231d7d5748d2701c12ba603317d') in 0.025743 seconds
+  Import took 0.029667 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000577 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.007 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 143.6 MB.
+System memory in use after: 143.8 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1941.
+Total: 2.000375 ms (FindLiveObjects: 0.225974 ms CreateObjectMapping: 0.050653 ms MarkObjects: 1.705855 ms  DeleteObjects: 0.016482 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 49.805950 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57171b5572a5958099db91653ebcb8a8') in 0.064359 seconds
+  Import took 0.068518 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.951354 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c99b644f6451334a2d453e820e1c810a') in 0.018927 seconds
+  Import took 0.023157 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003170 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c99b644f6451334a2d453e820e1c810a') in 0.025368 seconds
+  Import took 0.028415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 105.871347 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0b14b16984e8abb28431ef5f1a3e62e') in 0.105867 seconds
+  Import took 0.109298 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001095 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.950 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.3 MB.
+System memory in use after: 144.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1945.
+Total: 2.358487 ms (FindLiveObjects: 0.325581 ms CreateObjectMapping: 0.166999 ms MarkObjects: 1.846375 ms  DeleteObjects: 0.018273 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.074894 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f411b9cc13d02a3a919f452f6627426b') in 0.088238 seconds
+  Import took 0.093242 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000450 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.930 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.9 MB.
+System memory in use after: 145.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1949.
+Total: 1.942329 ms (FindLiveObjects: 0.198465 ms CreateObjectMapping: 0.059295 ms MarkObjects: 1.669122 ms  DeleteObjects: 0.014186 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 120.491990 seconds.
+  path: Assets/Art/Materials/SkyBox/Cube.png
+  artifactKey: Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/Cube.png using Guid(52baaa52f65b940cea76bb15e85740a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77cc0e8b9b5ab98a35329184952214f1') in 0.067309 seconds
+  Import took 0.070227 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 900.119027 seconds.
+  path: Assets/Art/Materials/SkyBox/New Material.mat
+  artifactKey: Guid(a22b8ebeea4c4494c927b77a26e4b82f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/SkyBox/New Material.mat using Guid(a22b8ebeea4c4494c927b77a26e4b82f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e30ffc9b9e291d14812b061205fef3a4') in 0.128361 seconds
+  Import took 0.131117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7870.968292 seconds.
+  path: Assets/Art/Materials/Objects/Paper_Mat.mat
+  artifactKey: Guid(08a47f3625ea5dc42a2e6484178bf3b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Objects/Paper_Mat.mat using Guid(08a47f3625ea5dc42a2e6484178bf3b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff41f58626ec206996c625cc2d6bd448') in 0.063830 seconds
+  Import took 0.080505 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Art/Materials/Environment/Planks_Mat.mat
+  artifactKey: Guid(83f6d499fb1094664bd09405d59676ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Environment/Planks_Mat.mat using Guid(83f6d499fb1094664bd09405d59676ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '475ed604162c5956673bf71ce49236d7') in 0.018732 seconds
+  Import took 0.021488 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.569649 seconds.
+  path: Assets/Art/Materials/Test/UnlitTexture_Material.mat
+  artifactKey: Guid(edef65141ddadcd4682fcaa49453b849) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Test/UnlitTexture_Material.mat using Guid(edef65141ddadcd4682fcaa49453b849) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a4f76c77ce2858934ac88722e014571') in 0.082759 seconds
+  Import took 0.086111 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000605 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.321 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.29 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 145.6 MB.
+System memory in use after: 145.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1953.
+Total: 2.113330 ms (FindLiveObjects: 0.271790 ms CreateObjectMapping: 0.067375 ms MarkObjects: 1.747470 ms  DeleteObjects: 0.025464 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000437 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.018 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 146.2 MB.
+System memory in use after: 146.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1956.
+Total: 2.010213 ms (FindLiveObjects: 0.185192 ms CreateObjectMapping: 0.049196 ms MarkObjects: 1.755729 ms  DeleteObjects: 0.018613 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 3593.665755 seconds.
+  path: Assets/Art/Models/cloud.fbx
+  artifactKey: Guid(8b1160ecc239340ae84edf6f4a6aa264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Models/cloud.fbx using Guid(8b1160ecc239340ae84edf6f4a6aa264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf3bbc3e2c7c1b4dc4168148b31f3bf9') in 0.214735 seconds
+  Import took 0.219289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 197.554164 seconds.
+  path: Assets/Art/Materials/Player
+  artifactKey: Guid(d286a791621444497a5fe4357cefbb44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Player using Guid(d286a791621444497a5fe4357cefbb44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80f590b0fce314c07bd15ecb4b08450b') in 0.002777 seconds
+  Import took 0.006599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.292751 seconds.
+  path: Assets/Art/Materials/Player/Smoke.mat
+  artifactKey: Guid(b722003d78b2c419cbcdfe959fc13357) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Player/Smoke.mat using Guid(b722003d78b2c419cbcdfe959fc13357) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50fc506c7e3820bfb37c07fb1d613947') in 0.011605 seconds
+  Import took 0.014688 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000492 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.083 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1392 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 151.2 MB.
+System memory in use after: 151.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1963.
+Total: 2.408079 ms (FindLiveObjects: 0.267679 ms CreateObjectMapping: 0.065276 ms MarkObjects: 2.053178 ms  DeleteObjects: 0.020219 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1178.009124 seconds.
+  path: Assets/Art/Materials/Player/Smoke.mat
+  artifactKey: Guid(b722003d78b2c419cbcdfe959fc13357) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Player/Smoke.mat using Guid(b722003d78b2c419cbcdfe959fc13357) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dffbac5fb755f8bd311bf1601e9b0090') in 0.089189 seconds
+  Import took 0.093569 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -15,6 +15,8 @@ Shader "Unlit/FlameParticle"
         _PlayerHeight ("Player height", float) = 1
         _PlayerBase ("Player Base", float) = 1
         _GradientMask ("Player Gradient", float) = 1
+        _Emission ("Emission", Range(0,5)) = 1
+
     }
     SubShader
     {
@@ -72,6 +74,7 @@ Shader "Unlit/FlameParticle"
             float _PlayerBase;
             float _GradientMask;
             float4 _Color;
+            fixed _Emission;
 
             v2f vert (appdata v)
             {
@@ -102,7 +105,8 @@ Shader "Unlit/FlameParticle"
 
                 float4 color = i.color * gradientMask + _Color * (1-gradientMask);
                 // return 
-                return color;
+                return color * _Emission;
+                return float4(color.rgb * _Emission, color.a);
             }
             ENDCG
         }

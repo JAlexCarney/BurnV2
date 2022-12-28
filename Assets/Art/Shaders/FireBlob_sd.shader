@@ -6,6 +6,8 @@ Shader "Unlit/FireBlob_sd"
         _Color_Inner ("Inner Color", Color) = (1,1,1,1)
         _Color_Outer ("Middle Color", Color) = (.5,.5,.5,.5)
         _Color_Gradient ("Gradient Color", Color) = (1,1,1,1)
+        _Emission ("Emission", Range(0,5)) = 1
+
 
         [Header(Color Properties)] 
         _ColorWidth ("Inner Color Width", Range(0, 16)) = 4
@@ -135,6 +137,7 @@ Shader "Unlit/FireBlob_sd"
             fixed4 _Color_Inner;
             fixed4 _Color_Outer;
             fixed4 _Color_Gradient;
+            fixed _Emission;
 
             float _Bottom;
             float _Top;
@@ -194,9 +197,10 @@ Shader "Unlit/FireBlob_sd"
                 float gradientMask = saturate(i.uv.y * _GradientHeight); 
                 color = color * gradientMask + _Color_Gradient * (1-gradientMask);
 
-                return color;
+                // return color;
 
-                return float4(color.rgb, alpha);
+                return color * _Emission;
+                return float4(color.rgb * _Emission, alpha);
             }
             ENDCG
         }

@@ -70,18 +70,19 @@ Material:
     - _DistortionStrength: 1
     - _DistortionStrengthScaled: 0
     - _DstBlend: 10
+    - _Emission: 1.82
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientMask: 0.83
+    - _GradientMask: 0.84
     - _LightingEnabled: 0
     - _Metallic: 0
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlayerBase: 1.010005
+    - _PlayerBase: 1.0100051
     - _PlayerHeight: 1.7423327
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0

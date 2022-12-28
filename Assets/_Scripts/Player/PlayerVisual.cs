@@ -29,7 +29,6 @@ public class PlayerVisual : MonoBehaviour
     }
 
     public void Move(Vector3 pos) { // making this a static bc i dont feel like having MORE references :) idk if i should change this lmao 
-        Debug.Log(mesh.GetComponent<Renderer>().bounds.size.y);
 
         fireLightSharedMat.SetVector(shPropPos, pos); 
         topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerHeight", mesh.GetComponent<Renderer>().bounds.size.y);
@@ -43,7 +42,6 @@ public class PlayerVisual : MonoBehaviour
         squishing = true; 
 
         Vector3 originalScale = mesh.transform.localScale;
-        Debug.Log("Original editeds");
 
         float time = 0; 
         for (float stretch = 0; stretch >= 0; stretch = Mathf.Sin(time)*.3f) 
