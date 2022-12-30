@@ -7,6 +7,7 @@ Shader "Unlit/SkyBox"
         _Start ("Start height", Range(-1,1)) = .5
         _End ("End Height", Range(-1,1)) = 1
         _Texture("Sky Texture", 2D) = "white" {}
+        _Opacity("Texture opacity", Range(0,1)) = 1
         
     }
     SubShader
@@ -48,6 +49,7 @@ Shader "Unlit/SkyBox"
             float _End;
             sampler2D _Texture;
             float4 _Texture_ST;
+            float _Opacity;
 
             v2f vert (appdata v)
             {
@@ -82,7 +84,7 @@ Shader "Unlit/SkyBox"
                 uv = uv * _Texture_ST.xy + _Texture_ST.zw;
 
                 fixed4 tex = tex2D (_Texture, uv);
-                return col * (1-tex.a) + tex * tex.a;
+                return col * (1-tex.a*_Opacity) + tex * tex.a*_Opacity;
             }
             ENDCG
         }

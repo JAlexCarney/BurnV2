@@ -4,7 +4,9 @@ Shader "Custom/Decal"
     {
         _Color ("Color", Color) = (1,1,1,1)
         _Decal ("Decal", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
+        [NoScaleOffset] _Glossiness ("Smoothness", 2D) = "white" {}
+        _GlossinessMult ("Smoothness multiplier", Range(0,1)) = 1
+        [NoScaleOffset]_Normals ("Normal Map", 2D) = "bump" {}
         _Metallic ("Metallic", Range(0,1)) = 0.0
     }
     SubShader

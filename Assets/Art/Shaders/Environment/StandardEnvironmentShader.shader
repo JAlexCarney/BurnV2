@@ -4,6 +4,7 @@ Shader "Custom/StandardEnvironmentShader"
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _TexMask ("Texture Mask", 2D) = "white" {}
         [NoScaleOffset] _Glossiness ("Smoothness", 2D) = "white" {}
         _GlossinessMult ("Smoothness multiplier", Range(0,1)) = 1
         [NoScaleOffset]_Normals ("Normal Map", 2D) = "bump" {}
@@ -23,10 +24,12 @@ Shader "Custom/StandardEnvironmentShader"
         #pragma target 3.0
 
         sampler2D _MainTex;
+        sampler2D _TexMask;
 
         struct Input
         {
             float2 uv_MainTex;
+            float2 uv_TexMask;
         };
 
         sampler2D _Glossiness;
@@ -48,8 +51,9 @@ Shader "Custom/StandardEnvironmentShader"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+            fixed4 mask = tex2D(_TexMask, IN.uv_TexMask);
+            o.Albedo = c.rgb * mask.r + _Color * (1-mask.r);
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = tex2D (_Glossiness, IN.uv_MainTex).r * _GlossinessMult;
