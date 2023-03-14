@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _NormalCutoff: 0.17
-    - _Range: 7.5
+    - _NormalCutoff: 0
+    - _Range: 7.37
     - _WigglyRange: 0.25
     - _WigglySpeed: 0.46
     m_Colors:
     - _Color: {r: 0.3882353, g: 0.105882354, b: 0.07450981, a: 1}
-    - _LightPos: {r: -1.702543, g: 1.0100051, b: -2.7799962, a: 0}
+    - _LightPos: {r: -0.8253785, g: 0.96000504, b: -1.6193072, a: 0}
   m_BuildTextureStacks: []

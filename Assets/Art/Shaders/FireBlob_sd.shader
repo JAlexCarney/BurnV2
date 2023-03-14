@@ -181,17 +181,17 @@ Shader "Unlit/FireBlob_sd"
 
                 float alpha = _Color_Outer.w; 
                 // inverse
-                half dp = dot(V, N);
+                half fresnel = dot(V, N);
                 
 
                 // i have NO fuckin idea why i inverse this lmao
-                dp = saturate((1 - dp) * _ColorWidth);    
-                dp = smoothstep(.9, 1, dp) * _CellShading + (1-_CellShading) * smoothstep(_ColorTransition.x, _ColorTransition.y, dp);
-                float4 color = dp * _Color_Outer;
+                fresnel = saturate((1 - fresnel) * _ColorWidth);    
+                fresnel = smoothstep(.9, 1, fresnel) * _CellShading + (1-_CellShading) * smoothstep(_ColorTransition.x, _ColorTransition.y, fresnel);
+                float4 color = fresnel * _Color_Outer;
 
                 // i have NO fucking idea why i flip this lmao 
-                dp = 1 - dp;
-                color = color + (dp * _Color_Inner);
+                fresnel = 1 - fresnel;
+                color = color + (fresnel * _Color_Inner);
 
                 // add gradient color at the bottom
                 float gradientMask = saturate(i.uv.y * _GradientHeight); 

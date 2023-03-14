@@ -5,7 +5,7 @@
         _Color ("Fire Color", Color) = (1,1,1,1)
         _LightPos ("Light pos", Vector) = (1,1,1)
         _Range ("Range", float) = 5
-        _NormalCutoff ("Normal Cutoff", Range(0,1)) = 0
+        _NormalCutoff ("Normal range", Range(-1, 1)) = 0
 
         _WigglyRange("Wiggly Range", Range(0,1)) = 0.5
         _WigglySpeed("Wiggly  Speed", float) = 1 
@@ -68,8 +68,8 @@
 
                 float3 L = normalize(_LightPos - i.wPos);
                 float3 N = normalize(i.normal); 
-
-                clip(dot(L,N) - _NormalCutoff); // remove if fragment is not facing light source 
+                // float normalAdjust = _NormalCutoff + pow(distance(_LightPos, i.wPos)/_Range, 4);
+                clip(dot(L,N) + _NormalCutoff); // remove if fragment is not facing light source 
     
                 return _Color;
             }

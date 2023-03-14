@@ -82,8 +82,8 @@ Material:
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlayerBase: 1.0100051
-    - _PlayerHeight: 1.7423327
+    - _PlayerBase: 0.96000504
+    - _PlayerHeight: 1.63
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
