@@ -26,5 +26,5 @@ Material:
     - _WigglySpeed: 0.46
     m_Colors:
     - _Color: {r: 0.3882353, g: 0.105882354, b: 0.07450981, a: 1}
-    - _LightPos: {r: -0.8253785, g: 0.96000504, b: -1.6193072, a: 0}
+    - _LightPos: {r: -4.256122, g: 0.9600054, b: 0.81483674, a: 0}
   m_BuildTextureStacks: []

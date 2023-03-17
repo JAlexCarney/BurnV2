@@ -6,10 +6,10 @@ public class PlayerController : MonoBehaviour
     // events 
     public static event Action ToggleEscapeMenu;
     public static event Action<BaseBurnable> ConsumedBurnable; 
+    public PlayerVisual playerVisual;
 
     // components 
     private CharacterController cc;
-    private PlayerVisual playerVisual;
     public Transform cam; 
 
     // movement stuff
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cc = GetComponent<CharacterController>();
-        playerVisual = GetComponent<PlayerVisual>();
     }
 
     // Update is called once per frame
@@ -53,19 +52,13 @@ public class PlayerController : MonoBehaviour
 
             cc.SimpleMove(moveDir * speed);
         }
-
-        // if (Input.GetKey(KeyCode.E))
-        // {
-        //     transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + rotationSpeed, transform.eulerAngles.z);
-        // }
-        // else if (Input.GetKey(KeyCode.Q)) 
-        // {
-        //     transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - rotationSpeed, transform.eulerAngles.z);
-        // }
-
         else if (Input.GetButtonDown("Escape")) // pull up escape menu
         {
             ToggleEscapeMenu?.Invoke();
+        }
+        else 
+        {
+            playerVisual.Idle();
         }
 
     }

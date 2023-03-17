@@ -36,7 +36,14 @@ public class PlayerVisual : MonoBehaviour
         
         // topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerHeight", mesh.GetComponent<Renderer>().bounds.size.y);
         topParticles.GetComponent<Renderer>().sharedMaterial.SetFloat("_PlayerBase", this.transform.position.y);
-        this.GetComponent<Animator>().Play("Walking", 0);
+        this.GetComponent<Animator>().SetBool("walking", true);
+        face.gameObject.GetComponent<Animator>().SetBool("walking", true);
+    }
+    
+    public void Idle()
+    {
+        this.GetComponent<Animator>().SetBool("walking", false);
+        face.gameObject.GetComponent<Animator>().SetBool("walking", false);
     }
 
     IEnumerator Squish(Vector3 direction)

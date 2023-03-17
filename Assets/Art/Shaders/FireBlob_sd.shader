@@ -3,25 +3,28 @@ Shader "Unlit/FireBlob_sd"
     Properties
     {
         [Header(Colors)] 
-        _Color_Inner ("Inner Color", Color) = (1,1,1,1)
-        _Color_Outer ("Middle Color", Color) = (.5,.5,.5,.5)
-        _Color_Gradient ("Gradient Color", Color) = (1,1,1,1)
-        _Emission ("Emission", Range(0,5)) = 1
-
+        _CenterColor ("Center Color", Color) = (1,1,1,1)
+        _MiddleColor ("Middle Color", Color) = (1,1,1,1)
+        _OuterColor ("Outer Color", Color) = (.5,.5,.5,.5)
+        _GradientColor ("Gradient overlay color", Color) = (1,1,1,1)
+        _Emission ("Emission", Range(1,5)) = 1
 
         [Header(Color Properties)] 
-        _ColorWidth ("Inner Color Width", Range(0, 16)) = 4
-        _GradientHeight("Gradient Height", Range(0,10)) = 1
+        _CenterColorWidth ("Center Color Width", Range(0, 1)) = .1
+        _MiddleColorWidth ("Middle Color Width", Range(0, 1)) = .2
+        _GradientHeight("Gradient Height", Range(0,1)) = 1
+        _BlendSharpness("Blend sharpness", Range(0,.1)) = 0
 
-        [MaterialToggle] 
-        _CellShading ("Cell shading", Float) = 0
-        [ShowAsVector2]
-        _ColorTransition("Color Transition", Vector) = (.9, 1, 0, 0)
+        [Header(Noise Properties)]
+        _NoiseTex ("Noise Texture", 2D) = "white" {}
+        _NoiseIntensity("Noise Intensity", Range(0,1)) = 0
+        _NoiseVertSpeed("Noise vertical Speed", Range(0,1)) = .2
+        _NoiseHorizSpeed("Noise horizontal speed", Range(0,1)) = 0
 
-        [Header(Blorbness)]
-        _Bottom ("Bottom clamp", Range(0, 1)) = 0.1
-        _Top ("Top clamp", Range (0,1)) = 0.5
+        [Header(Mesh Properties)]
         _HorizontalWiggle ("Horizontal wiggle amount", Range(0,30)) = 0.1
+        
+
 
     }
     SubShader
@@ -32,72 +35,11 @@ Shader "Unlit/FireBlob_sd"
         Stencil
         {
             Ref 10 
-            Comp always // comparison - ALWAYS write 1 into stencil buffer 
-            Pass replace // replace anything in frame buffer w this pixel pass
+            Comp always 
+            Pass replace 
         }
 
         ZWrite On
-
-        // Pass {
-        //     ZWrite On
-        //     ColorMask 0
-
-        //     CGPROGRAM
-        //     #pragma vertex vert
-        //     #pragma fragment frag
-
-
-        //     #include "UnityCG.cginc"
-            
-
-        //     #define PI 3.14159265359
-
-        //     struct appdata
-        //     {
-        //         float4 vertex : POSITION;
-        //         float2 uv : TEXCOORD0;
-        //         float2 uv1 : TEXCOORD1;
-        //         float3 normal : NORMAL;
-        //     };
-
-        //     struct v2f
-        //     {
-        //         float2 uv : TEXCOORD0;
-        //         float2 uv1 : TEXCOORD2;
-        //         float4 vertex : SV_POSITION;
-        //         float3 normal : TEXCOORD3; 
-        //         float3 wPos : TEXCOORD4; 
-        //     };
-
-        //     v2f vert (appdata v)
-        //     {
-        //         v2f o;
-
-        //         // UVs are second set of UVs (contain height/width of model)
-        //         o.uv = v.uv1;
-
-        //         // calculate wigglies 
-        //         float wiggleX = sin(_Time.y * o.uv.y * 5) * .0005;
-        //         float wiggleY = ((sin(PI * _Time.y)+1)/2) * .002 * sin(o.uv.x * PI);
-        //         v.vertex.x = v.vertex.x + wiggleX;
-        //         // v.vertex.z = v.vertex.z + wiggleY * (o.uv.y>.5);
-        //         o.vertex = UnityObjectToClipPos(v.vertex);
-
-        //         // other vars
-        //         o.normal = UnityObjectToWorldNormal( v.normal ); 
-        //         o.wPos = mul(unity_ObjectToWorld, v.vertex);
-        //         return o;
-        //     }
-
-        //     fixed4 frag (v2f i) : SV_Target
-        //     {
-        //         // sample the texture
-        //         return float4(0,0,0,0);
-        //     }
-
-        //     ENDCG
-        // }
-
 
         Pass
         {
@@ -118,6 +60,7 @@ Shader "Unlit/FireBlob_sd"
                 float2 uv : TEXCOORD0;
                 float2 uv1 : TEXCOORD1;
                 float3 normal : NORMAL;
+                float4 tangent : TANGENT;
             };
 
             struct v2f
@@ -127,24 +70,27 @@ Shader "Unlit/FireBlob_sd"
                 float4 vertex : SV_POSITION;
                 float3 normal : TEXCOORD3; 
                 float3 wPos : TEXCOORD4; 
-                float3 color : TEXCOORD5;
             };
 
-            float4 _MainTex_ST;
-
-            float _ColorWidth;
-            float _GradientHeight;
-            fixed4 _Color_Inner;
-            fixed4 _Color_Outer;
-            fixed4 _Color_Gradient;
+            fixed4 _CenterColor;
+            fixed4 _MiddleColor;
+            fixed4 _OuterColor;
+            fixed4 _GradientColor;
             fixed _Emission;
+            
+            float _BlendSharpness;
+            float _CenterColorWidth;
+            float _MiddleColorWidth;
+            float _GradientHeight;
 
-            float _Bottom;
-            float _Top;
+            float4 _NoiseTex_ST;
+            sampler2D _NoiseTex;
+            float _NoiseIntensity;
+            float _NoiseVertSpeed;
+            float _NoiseHorizSpeed;
+
             float _HorizontalWiggle; 
 
-            float _CellShading;
-            float4 _ColorTransition;
 
             float iLerp( float a, float b, float v ) {
                 return (v - a) / (b - a);
@@ -154,53 +100,65 @@ Shader "Unlit/FireBlob_sd"
             {
                 v2f o;
 
-                // UVs are second set of UVs (contain height/width of model)
-                o.uv = v.uv1;
+                o.normal = UnityObjectToWorldNormal(v.normal); 
+                o.wPos = mul(unity_ObjectToWorld, v.vertex);
+
+                // get view dir in tangent space - https://halisavakis.com/my-take-on-shaders-parallax-effect-part-ii/
+                float4 objCam = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos, 1.0));
+                float3 viewDir = v.vertex.xyz - objCam.xyz;
+                float tangentSign = v.tangent.w * unity_WorldTransformParams.w;
+                float3 bitangent = cross(v.normal.xyz, v.tangent.xyz) * tangentSign;
+                float3 viewDirTangent = float3(
+                    dot(viewDir, v.tangent.xyz),
+                    dot(viewDir, bitangent.xyz),
+                    dot(viewDir, v.normal.xyz)
+                );
+
+                // map tang space view dir to uvs 
+                o.uv = float2(viewDirTangent.r - (_Time.y * _NoiseHorizSpeed), viewDirTangent.y - (_Time.y * _NoiseVertSpeed));
+                o.uv = TRANSFORM_TEX(o.uv, _NoiseTex);
+                // second set of UVs contains height/width of mesh 
+                o.uv1 = v.uv1; 
 
                 // calculate wigglies 
-                float wiggleX = sin((o.uv.y -_Time.y * .2f)  * _HorizontalWiggle) * .0005;
-                float clamped = saturate(iLerp(_Bottom, _Top, o.uv.y)); 
-                v.vertex.x = v.vertex.x + (wiggleX * clamped);
-
-                float wiggleY = ((sin(PI * _Time.y)+1)/2) * .002 * sin(o.uv.x * PI);
-                // v.vertex.z = v.vertex.z + wiggleY * (o.uv.y>.5);
-                
+                float wiggleX = sin((o.uv1.y -_Time.y * .2f)  * _HorizontalWiggle) * .0005;
+                v.vertex.x = v.vertex.x + (wiggleX * o.uv1.y);
                 o.vertex = UnityObjectToClipPos(v.vertex);
 
-                // other vars
-                o.normal = UnityObjectToWorldNormal( v.normal ); 
-                o.wPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
+                // vars 
                 float3 N = normalize(i.normal); 
-                float3 L = _WorldSpaceLightPos0.xyz; // actually a direction (first pass)
+                float3 L = _WorldSpaceLightPos0.xyz;
                 float3 V = normalize(_WorldSpaceCameraPos - i.wPos); 
-
-                float alpha = _Color_Outer.w; 
-                // inverse
                 half fresnel = dot(V, N);
-                
 
-                // i have NO fuckin idea why i inverse this lmao
-                fresnel = saturate((1 - fresnel) * _ColorWidth);    
-                fresnel = smoothstep(.9, 1, fresnel) * _CellShading + (1-_CellShading) * smoothstep(_ColorTransition.x, _ColorTransition.y, fresnel);
-                float4 color = fresnel * _Color_Outer;
+                // sample noise and apply to fresnel 
+                float fresnelNoise = tex2D(_NoiseTex, i.uv) * _NoiseIntensity; 
+                fresnel += fresnelNoise;
+                fresnel = saturate(fresnel);
 
-                // i have NO fucking idea why i flip this lmao 
-                fresnel = 1 - fresnel;
-                color = color + (fresnel * _Color_Inner);
+                // color masks  
+                float innerColorMask = saturate(iLerp(1 - _CenterColorWidth - _BlendSharpness, 1 - _CenterColorWidth + _BlendSharpness, fresnel));
+                innerColorMask *= step(0.001, _CenterColorWidth); 
+                float middleColorThreshold = 1 - _CenterColorWidth - _MiddleColorWidth; 
+                // adjust blend sharpness since change in fresnel is not as apparent on the edges 
+                float middleColorMask = saturate(iLerp(middleColorThreshold - _BlendSharpness * 2, middleColorThreshold + _BlendSharpness * 1.5, fresnel));
+                float outerColorMask = 1 - middleColorMask;
+                middleColorMask -= innerColorMask;
+                middleColorMask *= step(0.001, _MiddleColorWidth);
 
-                // add gradient color at the bottom
-                float gradientMask = saturate(i.uv.y * _GradientHeight); 
-                color = color * gradientMask + _Color_Gradient * (1-gradientMask);
+                float4 color = innerColorMask * _CenterColor + middleColorMask * _MiddleColor + outerColorMask * _OuterColor;
 
-                // return color;
+                // overlay gradient 
+                float gradientHeight = 1/(_GradientHeight*2); // calculations so exposed parameter makes more sense to end user
+                float gradientMask = saturate(i.uv1.y * gradientHeight);   
+                color.rgb = color.rgb + (_GradientColor.rgb * (1-gradientMask));
 
                 return color * _Emission;
-                return float4(color.rgb * _Emission, alpha);
             }
             ENDCG
         }
