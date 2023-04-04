@@ -5,14 +5,14 @@ Shader "Unlit/FireBlob_sd"
         [Header(Colors)] 
         _CenterColor ("Center Color", Color) = (1,1,1,1)
         _MiddleColor ("Middle Color", Color) = (1,1,1,1)
-        _OuterColor ("Outer Color", Color) = (.5,.5,.5,.5)
-        _GradientColor ("Gradient overlay color", Color) = (1,1,1,1)
-        _Emission ("Emission", Range(1,5)) = 1
+        // _BaseColor ("Outer Color", Color) = (.5,.5,.5,.5)
+        // _GradientColor ("Gradient overlay color", Color) = (1,1,1,1)
+        // _Emission ("Emission", Range(1,5)) = 1
 
         [Header(Color Properties)] 
         _CenterColorWidth ("Center Color Width", Range(0, 1)) = .1
         _MiddleColorWidth ("Middle Color Width", Range(0, 1)) = .2
-        _GradientHeight("Gradient Height", Range(0,1)) = 1
+        // _GradientHeight("Gradient Height", Range(0,1)) = 1
         _BlendSharpness("Blend sharpness", Range(0,.1)) = 0
 
         [Header(Noise Properties)]
@@ -74,14 +74,14 @@ Shader "Unlit/FireBlob_sd"
 
             fixed4 _CenterColor;
             fixed4 _MiddleColor;
-            fixed4 _OuterColor;
-            fixed4 _GradientColor;
-            fixed _Emission;
+            uniform fixed4 _BaseColor;
+            uniform fixed4 _GradientColor;
+            uniform float _Emission;
             
             float _BlendSharpness;
             float _CenterColorWidth;
             float _MiddleColorWidth;
-            float _GradientHeight;
+            uniform float _GradientHeight;
 
             float4 _NoiseTex_ST;
             sampler2D _NoiseTex;
@@ -151,7 +151,7 @@ Shader "Unlit/FireBlob_sd"
                 middleColorMask -= innerColorMask;
                 middleColorMask *= step(0.001, _MiddleColorWidth);
 
-                float4 color = innerColorMask * _CenterColor + middleColorMask * _MiddleColor + outerColorMask * _OuterColor;
+                float4 color = innerColorMask * _CenterColor + middleColorMask * _MiddleColor + outerColorMask * _BaseColor;
 
                 // overlay gradient 
                 float gradientHeight = 1/(_GradientHeight*2); // calculations so exposed parameter makes more sense to end user

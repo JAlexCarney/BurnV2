@@ -11,11 +11,11 @@ Shader "Unlit/FlameParticle"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Color("Color", Color) = (1,1,1,1)
+        // _Color("Color", Color) = (1,1,1,1)
         _PlayerHeight ("Player height", float) = 1
         _PlayerBase ("Player Base", float) = 1
-        _GradientMask ("Player Gradient", float) = 1
-        _Emission ("Emission", Range(0,5)) = 1
+        // _GradientMask ("Player Gradient", float) = 1
+        // _Emission ("Emission", Range(0,5)) = 1
 
     }
     SubShader
@@ -72,9 +72,10 @@ Shader "Unlit/FlameParticle"
             float4 _MainTex_ST;
             float _PlayerHeight;
             float _PlayerBase;
-            float _GradientMask;
-            float4 _Color;
-            fixed _Emission;
+            uniform float _GradientHeight;
+            uniform float4 _BaseColor;
+            uniform float4 _GradientColor;
+            uniform float _Emission;
 
             v2f vert (appdata v)
             {
@@ -94,19 +95,25 @@ Shader "Unlit/FlameParticle"
             // maybe pass in gradient y pos and calculate that w particle???? idkkkk
             fixed4 frag (v2f i) : SV_Target
             {
-                // float gradientMask = saturate(i.uv.y * _GradientHeight);
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
                 clip(col-.95);
 
                 float y = iLerp(_PlayerBase, _PlayerHeight + _PlayerBase, i.wPos.y);
-                float gradientMask = saturate(y * _GradientMask);
+                float gradientHeight = 1/(_GradientHeight*2);
+                float gradientMask = saturate(y * gradientHeight);
                 // return float4(gradientMask, gradientMask, gradientMask,1);
 
-                float4 color = i.color * gradientMask + _Color * (1-gradientMask);
+                // float4 color = _BaseColor * gradientMask + _GradientColor * (1-gradientMask);
+
+                // float gradientHeight = 1/(_GradientHeight*2); // calculations so exposed parameter makes more sense to end user
+                // float gradientMask = saturate(i.uv1.y * gradientHeight);   
+                float4 color = _BaseColor + (_GradientColor * (1-gradientMask));
+                color.a = _BaseColor.a;
+
                 // return 
                 return color * _Emission;
-                return float4(color.rgb * _Emission, color.a);
+                // return float4(color.rgb * _Emission, color.a);
             }
             ENDCG
         }

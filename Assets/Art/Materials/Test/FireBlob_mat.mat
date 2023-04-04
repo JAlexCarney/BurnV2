@@ -81,10 +81,10 @@ Material:
     - _InnerColorSharpness: 0.024
     - _InnerColorWidth: 0.03
     - _Metallic: 0
-    - _MiddleColorWidth: 0.248
+    - _MiddleColorWidth: 0.18
     - _Mode: 0
     - _NoiseHorizSpeed: 0.431
-    - _NoiseIntensity: 0.36
+    - _NoiseIntensity: 0.43
     - _NoiseVertSpeed: 0.613
     - _NumSteps: 9
     - _OcclusionStrength: 1
@@ -109,7 +109,7 @@ Material:
     - _Color_Outer: {r: 1, g: 0.19215687, b: 0, a: 0.7294118}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GradientColor: {r: 0.5393865, g: 0.13843894, b: 0.5754717, a: 0.34117648}
-    - _MiddleColor: {r: 1, g: 0.34601617, b: 0, a: 1}
+    - _MiddleColor: {r: 1, g: 0.32472157, b: 0, a: 1}
     - _OuterColor: {r: 0.9339623, g: 0.057271298, b: 0.057271298, a: 0.5}
     - _Outer_Color: {r: 1, g: 0.19215687, b: 0, a: 0.9647059}
   m_BuildTextureStacks: []

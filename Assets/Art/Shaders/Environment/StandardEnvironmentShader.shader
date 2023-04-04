@@ -13,7 +13,7 @@ Shader "Custom/StandardEnvironmentShader"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" } // removed "RenderType"="Opaque" tag so ground does not render to depth/normal texture
         LOD 200
 
         CGPROGRAM

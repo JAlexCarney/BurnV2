@@ -11,9 +11,10 @@
     {
         LOD 100
 
+        Tags {  "RenderType" = "Opaque" "LightMode"="ForwardBase"  }
+
         Pass
         {   
-            Tags {  "LightMode"="ForwardBase"  }
 
             CGPROGRAM
             #pragma vertex vert
