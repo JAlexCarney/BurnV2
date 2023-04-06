@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class SetPlayerColors : MonoBehaviour
 {
     public Color baseColor; 
@@ -9,7 +10,7 @@ public class SetPlayerColors : MonoBehaviour
     public float gradientHeight; 
     public float emission;  
 
-    private void OnEnable() {
+    private void Awake() {
         Shader.SetGlobalColor("_BaseColor", baseColor);
         Shader.SetGlobalColor("_GradientColor", gradientColor);
         Shader.SetGlobalFloat("_GradientHeight", gradientHeight);
